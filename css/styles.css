@@ -1,0 +1,369 @@
+/* body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #1176ff 0%, #ff55b5 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background 1s;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 36px 48px 32px 48px;
+    border-radius: 24px;
+    box-shadow: 0 8px 40px rgba(85, 32, 180, 0.18), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+    width: 360px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+    animation: popIn 0.7s cubic-bezier(.25,1.7,.54,1.28);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.94) translateY(15px); opacity: 0.15;}
+    100% {transform: scale(1) translateY(0); opacity: 1;}
+}
+
+h2 {
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #4251f2 30%, #e8338c 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 2rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 12px 0 18px 0;
+    border: 1.5px solid #b6baf1;
+    border-radius: 8px;
+    transition: border 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+    background-color: #f4f7fd;
+    box-shadow: 0 0 0 2px transparent;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus {
+    border-color: #ff66c4;
+    box-shadow: 0 0 0 2px #eaf0fb, 0 4px 16px 0 rgba(60, 90, 240, 0.10);
+    background-color: #fff9fd;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    background-image: linear-gradient(90deg, #4251f2 10%, #e8338c 90%);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 0 4px 18px -3px #f456e8a0;
+    margin-top: 4px;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.3s, transform 0.15s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-image: linear-gradient(90deg, #e8338c 10%, #4251f2 90%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 32px -4px #8669f7a0, 0 1px 8px #e8338c22;
+}
+
+a {
+    color: #e8338c;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #1176ff;
+    text-decoration: underline;
+}
+
+#qrCode img {
+    margin-top: 22px;
+    border-radius: 18px;
+    box-shadow: 0 4px 22px -2px #8838c891;
+    width: 220px;
+    height: 220px;
+    background: #fff;
+    padding: 10px;
+    transition: box-shadow 0.3s, transform 0.2s;
+}
+
+#qrCode img:hover {
+    transform: scale(1.06) rotate(-1deg);
+    box-shadow: 0 16px 52px -6px #1176ff3a;
+}
+
+#message {
+    color: #e8338c;
+    margin-top: 14px;
+    font-weight: 600;
+    transition: color 0.32s;
+    font-size: 1.07em;
+    letter-spacing: 0.2px;
+}
+
+#result {
+    margin-top: 28px;
+    font-weight: bold;
+    color: #1176ff;
+    font-size: 1.15em;
+    background: #ecf1fa;
+    border-radius: 8px;
+    padding: 12px 0 10px 0;
+    transition: color 0.28s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px -2px #1791ff12;
+}
+
+#scanner-container {
+    margin-bottom: 24px;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px -3px #1176ff30, 0 0 0 2px #e8338c28 inset;
+    background: #eaf0fb5e;
+    padding: 14px;
+    transition: box-shadow 0.3s;
+}
+
+::-webkit-input-placeholder   { color: #cbb4e6;   }
+::-moz-placeholder           { color: #cbb4e6;   }
+:-ms-input-placeholder       { color: #cbb4e6;   }
+::placeholder               { color: #cbb4e6;   }
+
+ul#certList {
+  list-style: none;
+  padding: 0;
+}
+.cert-list {
+  margin: 8px 0;
+  background: #ebf2fd;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 1.11em;
+  transition: background 0.22s;
+}
+.cert-list:hover {
+  background: #e8e1f1;
+}
+.cert-link {
+  cursor: pointer;
+  color: #4d1dfd;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.cert-link:hover {
+  color: #f02a7a;
+}
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0; width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.33);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px 20px 20px 20px;
+    border: 1px solid #888;
+    width: 330px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 50px -4px #8638c831;
+    position: relative;
+}
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px; right: 14px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close:hover,
+.close:focus {
+    color: #f44336;
+    text-decoration: none;
+    cursor: pointer;
+}
+ */
+ /* General body with a vibrant gradient background and smooth transition */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #1176ff 0%, #ff55b5 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background 1s ease-in-out;
+}
+
+/* Container with semi-transparent background, soft shadow, rounded corners, and smooth pop-in animation */
+.container {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 36px 48px 32px 48px;
+    border-radius: 24px;
+    box-shadow: 0 8px 40px rgba(85, 32, 180, 0.18),
+                0 1.5px 8px rgba(0, 0, 0, 0.10);
+    width: 360px;
+    text-align: center;
+    transition: box-shadow 0.3s ease,.transform 0.3s ease;
+    /* Animation for a smooth pop-in effect */
+    animation: popIn 0.7s cubic-bezier(.25,1.7,.54,1.28);
+}
+
+/* Keyframes for the pop-in animation */
+@keyframes popIn {
+    0% { transform: scale(0.94) translateY(15px); opacity: 0.15; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Main title with transparent gradient clipped text for attractive look */
+h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #4251f2 30%, #e8338c 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Style for input fields with rounded borders and soft background */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 12px 0 18px 0;
+    border: 1.5px solid #b6baf1;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f4f7fd;
+    box-shadow: 0 0 0 2px transparent;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus {
+    border-color: #ff66c4;
+    box-shadow: 0 0 0 2px #eaf0fb, 0 4px 16px 0 rgba(60, 90, 240, 0.10);
+    background-color: #fff9fd;
+}
+
+/* Stylish gradient buttons with hover effects for actions */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1.18em;
+    font-weight: 700;
+    color: #fff;
+    background-image: linear-gradient(90deg, #4251f2 10%, #e8338c 90%);
+    box-shadow: 0 4px 18px -3px #f456e8a0;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s, transform 0.15s, box-shadow 0.3s;
+    margin-top: 12px;
+}
+
+button:hover {
+    background-image: linear-gradient(90deg, #e8338c 10%, #4251f2 90%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 32px -4px #8669f7a0, 0 1px 8px #e8338c22;
+}
+
+/* Stylish links with underline hover effect */
+a {
+    color: #e8338c;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #1176ff;
+    text-decoration: underline;
+}
+
+/* Style for QR Code images: rounded with shadow, hover animation */
+#qrCode img {
+    margin-top: 22px;
+    border-radius: 18px;
+    box-shadow: 0 4px 22px -2px #8838c891;
+    width: 220px;
+    height: 220px;
+    background: #fff;
+    padding: 10px;
+    transition: box-shadow 0.3s, transform 0.2s;
+}
+
+#qrCode img:hover {
+    transform: scale(1.06) rotate(-1deg);
+    box-shadow: 0 16px 52px -6px #1176ff3a;
+}
+
+/* Style for message alerts, success messages */
+#message {
+    color: #e8338c;
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 1.07em;
+    letter-spacing: 0.2px;
+    transition: color 0.32s;
+}
+
+#result {
+    margin-top: 28px;
+    font-weight: bold;
+    color: #1176ff;
+    font-size: 1.15em;
+    background: #ecf1fa;
+    border-radius: 8px;
+    padding: 12px 0 10px 0;
+    transition: color 0.28s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px -2px #1791ff12;
+}
+
+/* Container for QR code scanner or any alert */
+#scanner-container {
+    margin-bottom: 24px;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px -3px #1176ff30,
+                0 0 0 2px #e8338c28 inset;
+    background: #eaf0fb5e;
+    padding: 14px;
+    transition: box-shadow 0.3s;
+}
+
+/* Placeholder text styles for inputs (cross-browser) */
+::-webkit-input-placeholder { color: #cbb4e6; }
+::-moz-placeholder { color: #cbb4e6; }
+:-ms-input-placeholder { color: #cbb4e6; }
+::placeholder { color: #cbb4e6; }
+

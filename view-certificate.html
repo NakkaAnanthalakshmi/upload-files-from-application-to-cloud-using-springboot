@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>View Certificate</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Scan QR Code to View Certificate</h2>
+    <div id="scanner-container">
+        <video id="preview" width="300" height="300"></video>
+    </div>
+    <div id="result"></div>
+    <button id="logoutBtn">Logout</button>
+</div>
+<script src="js/qrcode-scanner.js"></script>
+<script src="js/view.js"></script>
+</body>
+</html>
