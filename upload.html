@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cloud Based Certificate Uploader</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div class="container">
+     <h1 class="app-title">Cloud Based Certificate Uploader</h1>
+    <h2>Upload Certificate</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="file" accept=".pdf,.jpg,.jpeg,.png" required />
+        <button type="submit">Upload</button>
+    </form>
+    <div id="qrCode"></div>
+    <button id="showCertificatesBtn">Show All My Certificates</button>
+    <button id="logoutBtn">Logout</button>
+</div>
+<script src="js/upload.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cloud Based Certificate Uploader</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div class="container">
+    <h1 class="app-title">Cloud Based Certificate Uploader</h1>
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        <input type="text" id="username" placeholder="Username" required minlength="3" />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required minlength="6" />
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+    <div id="message"></div>
+</div>
+<script src="js/auth.js"></script>
+</body>
+</html>

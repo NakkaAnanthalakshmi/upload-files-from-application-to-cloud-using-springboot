@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>All My Certificates</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Cloud Based Certificate Uploader</title>
+
+</head>
+<body>
+<div class="container">
+    <h1 class="app-title">Cloud Based Certificate Uploader</h1>
+    <h2>All My Certificates</h2>
+    <div id="userInfo"></div>
+    <ul id="certList"></ul>
+    <div id="qrPopup" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="closeQr" class="close">&times;</span>
+            <div id="qrDisplay"></div>
+            <button id="viewBtn">View</button>
+            <button id="downloadBtn">Download</button>
+        </div>
+    </div>
+    <button id="logoutBtn">Logout</button>
+</div>
+<script src="js/certificates.js"></script>
+</body>
+</html>
